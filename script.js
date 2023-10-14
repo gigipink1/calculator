@@ -49,13 +49,22 @@ numBtns.forEach((button) => {
             numTwo += number;
             screen.textContent = numTwo;
         } else if (operator !== '') {
+             if (numTwo.includes('.') && number === '.') {
+                numTwo += '';
+            } else  { 
             numTwo += number;
             screen.textContent = numTwo;
+            }
+
         } else  {
+            if (numOne.includes('.') && number === '.') {
+                numOne += '';
+            } else  { 
             numOne += number;
             screen.textContent = numOne;
         }
-        });
+        }
+    });
 }); 
 
 const operators = document.querySelector('.operators');
@@ -84,3 +93,14 @@ opBtns.forEach((button) => {
         
     })
 })
+
+const clear = document.querySelector('.clear')
+
+clear.addEventListener('click', () => {
+    numOne = '';
+    numTwo = '';
+    operator = '';
+    screen.textContent = '';
+})
+
+
